@@ -21,7 +21,7 @@ public class LSystemsTreesApp extends PApplet {
     }
 
     public void setup(){
-        this.lSystem = getRandomTry();
+        this.lSystem = get3_2a();
     }
 
     public void draw(){
@@ -54,7 +54,7 @@ public class LSystemsTreesApp extends PApplet {
     */
 
     ///*
-    private LSystem getRandomTry(){
+    private LSystem get3_2a(){
         HashMap<String, String> ruleset = new HashMap<String, String>();
         ruleset.put("F","F[+F]F[-F]F");
         ruleset.put("G", "G");
@@ -66,20 +66,6 @@ public class LSystemsTreesApp extends PApplet {
         return lSystem;
     }
     //*/
-
-    /*
-    private LSystem get3_2_a(){
-        HashMap<String, String> ruleset = new HashMap<String, String>();
-        ruleset.put("F", "F[+F]F[−F]F");
-        ruleset.put("G", "G");
-        ruleset.put("+", "+");
-        ruleset.put("-", "-");
-        ruleset.put("[", "[");
-        ruleset.put("]", "]");
-        LSystem lSystem = new LSystem("F",ruleset,height/4, radians(25));
-        return lSystem;
-    }
-    */
 
     public static LSystemsTreesApp getApp(){
         return app;
