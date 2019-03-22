@@ -6,17 +6,23 @@ public class LSystem {
     private int numGenerations;
     private HashMap<String, String> productionRules;
 
-    public LSystem(String axiom, HashMap<String,String> productionRules, float startingLength, float theta){
-        this.turtle = new Turtle(startingLength, theta);
+    public LSystem(String axiom, HashMap<String,String> productionRules, float startingLength, float theta, int color){
+        this.turtle = new Turtle(startingLength, theta, color);
         this.generation = axiom;
         this.numGenerations = 0;
+
         this.productionRules = productionRules;
+        productionRules.put("+", "+");
+        productionRules.put("-", "-");
+        productionRules.put("[", "[");
+        productionRules.put("]", "]");
     }
 
     public void render(){
         for(int i = 0; i < generation.length(); i++){
             turtle.render(generation.charAt(i),numGenerations);
         }
+
     }
 
     public void generateNewSentence(){
@@ -29,5 +35,4 @@ public class LSystem {
         generation = nextgen.toString();
         numGenerations++;
     }
-
 }
